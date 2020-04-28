@@ -1,0 +1,107 @@
+/* BASE SETTINGS */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+html,body
+{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+
+#mainBody {
+    background-image: url("ShiningCarpet.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#mainText {
+    margin-top: 15%;
+    text-align: center;
+}
+
+#enterButton {  
+    margin-top: 15px;
+    background-color: #212121;
+    color: rgb(231, 209, 209);
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 24px;
+    text-transform: capitalize;
+    border-radius: 7px;
+}
+
+#enterButton:hover {
+    transition: color .5s linear;
+    background-color: #181818;
+}
+
+#upper-left-logo {
+    padding-left: 1%;
+    font-size: 32px;
+}
+
+main {
+    flex: 1 0 auto;
+}
+
+main.container {
+    background: #212121fa;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    padding: 50px;
+    padding-top: 0px;
+    min-height: 100%;
+}
+
+a:hover {
+    color: #ff438b;
+    transition: color .5s linear;
+}
+
+.prefItem {
+    padding-right: 50px;
+}
+
+.formCategory {
+    padding-right: 20px;
+    font-size: 18px;
+}
+
+.activeNav {
+    color: #ff438b;
+}
+
+.row {
+    margin-bottom: 2px;
+}
+
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:before,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  border: 2px solid #ff2a7c;
+ 
+}
+ 
+[type="radio"]:checked + span:after,
+ 
+[type="radio"].with-gap:checked + span:after {
+ 
+  background-color: #ff2a7c;
+ 
+}
+
+.switch label input[type="checkbox"]:checked + .lever:after {
+ 
+    background-color: #ff2a7c;
+}
+
+.switch label input[type="checkbox"]:checked + .lever {
+    background-color: #ff65a0;
+}
