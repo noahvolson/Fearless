@@ -42,7 +42,7 @@ let reviews = document.querySelectorAll(".review");
 reviews.forEach((review) => {
   
   // if any dataset setting exceeds preference, hide that div by adding class "hidden"
-  if ((review.dataset.gore >= gorePref) || (review.dataset.kill >= killPref) || (review.dataset.para >= paraPref) || (review.dataset.claus >= clausPref) || (review.dataset.psych >= psychPref)) {
+  if ((review.dataset.gore > gorePref) || (review.dataset.kill > killPref) || (review.dataset.para > paraPref) || (review.dataset.claus > clausPref) || (review.dataset.psych > psychPref)) {
     review.classList.add("hidden");
   }
 });
