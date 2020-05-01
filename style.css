@@ -114,6 +114,13 @@ a:hover {
  
 }
 
+
+input[type=text]:not(.browser-default):focus:not([readonly]) {
+    border-bottom: 1px solid #ff438B;
+    -webkit-box-shadow: 0 1px 0 0 #ff438B;
+    box-shadow: 0 1px 0 0 #ff438B;
+}
+
 .switch label input[type="checkbox"]:checked + .lever:after {
  
     background-color: #ff2a7c;
