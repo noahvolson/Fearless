@@ -23,7 +23,12 @@ html,body
     text-align: center;
 }
 
-#savePrefs,#enterButton {  
+#favMovies {
+    margin-left: 12px;
+    font-size: 20px;
+}
+
+#savePrefs,#enterButton,#addButton {  
     margin-top: 15px;
     background-color: #212121;
     color: white;
@@ -32,6 +37,10 @@ html,body
     font-size: 24px;
     text-transform: capitalize;
     border-radius: 7px;
+}
+
+#addButton {
+    margin-left: 20px;
 }
 
 #savePrefs:hover {

@@ -53,18 +53,11 @@
 </div>
 
 <div class="row">
-  <h6 class = "col s9" style="text-decoration: underline;">Preference Summary</h6>
+  <h5 class = "col s3">Favorite Movies:</h5>
+  <input class ="col s3" type="text" id="candidate"/>
+  <a href="#" id="addButton" class="waves-effect waves-light btn" onclick="addItem()">+</a>
 </div>
-
-<div class="row">
-  <span class = "col s4">Gore comfort rating: tempVal</span>
-  <span class = "col s4">Killer comfort rating: tempVal</span>
-  <span class = "col s4">Paranormal comfort rating: tempVal</span>
-</div>
-<div class="row">
-  <span class = "col s4">Tight Spaces comfort rating: tempVal</span>
-  <span class = "col s4">Psychological comfort rating: tempVal</span>
-</div>
+<ul id="favMovies"></ul>
 
 </main>
 <footer class="page-footer #212121 grey darken-4">
@@ -72,5 +65,24 @@
   <!--JavaScript at end of body for optimized loading-->
   <script type="text/javascript" src="js/materialize.min.js"></script>
 </body>
+
+<script> // This script from https://memorynotfound.com/dynamically-addremove-items-list-javascript/
+function addItem(){
+    var ul = document.getElementById("favMovies");
+    var candidate = document.getElementById("candidate");
+    var li = document.createElement("li");
+    li.setAttribute('id',candidate.value);
+    li.appendChild(document.createTextNode(candidate.value));
+    ul.appendChild(li);
+}
+
+function removeItem(){
+    var ul = document.getElementById("favMovies");
+    var candidate = document.getElementById("candidate");
+    var item = document.getElementById(candidate.value);
+    ul.removeChild(item);
+}
+</script>
+
 
 </html>
