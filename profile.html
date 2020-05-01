@@ -54,7 +54,7 @@
 
 <div class="row">
   <h5 class = "col s3">Favorite Movies:</h5>
-  <input class ="col s3" type="text" id="candidate"/>
+  <input class ="col s3" type="text" id="newMovie"/>
   <a href="#" id="addButton" class="waves-effect waves-light btn" onclick="addItem()">+</a>
 </div>
 <ul id="favMovies"></ul>
@@ -69,17 +69,17 @@
 <script> // This script from https://memorynotfound.com/dynamically-addremove-items-list-javascript/
 function addItem(){
     var ul = document.getElementById("favMovies");
-    var candidate = document.getElementById("candidate");
+    var newMovie = document.getElementById("newMovie");
     var li = document.createElement("li");
-    li.setAttribute('id',candidate.value);
-    li.appendChild(document.createTextNode(candidate.value));
+    li.setAttribute('id',newMovie.value);
+    li.appendChild(document.createTextNode(newMovie.value));
     ul.appendChild(li);
 }
 
 function removeItem(){
     var ul = document.getElementById("favMovies");
-    var candidate = document.getElementById("candidate");
-    var item = document.getElementById(candidate.value);
+    var newMovie = document.getElementById("newMovie");
+    var item = document.getElementById(newMovie.value);
     ul.removeChild(item);
 }
 </script>
