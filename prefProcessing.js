@@ -14,14 +14,21 @@ function doSaveForm(event) {
   let paraLevel = prefsForm.elements["paranormal"].value;
   let clausLevel = prefsForm.elements["claustrophobia"].value;
   let psychLevel = prefsForm.elements["psychological"].value;
-  
+
+  let pushSelf = 0;
+  if (prefsForm.elements["pushSelf"].checked == true) {
+    pushSelf = 1;
+  }
+
   let prefs2save = {
-    gore: goreLevel,
-    kill: killLevel,
-    para: paraLevel,
-    claus: clausLevel,
-    psych: psychLevel
+    gore: (parseInt(goreLevel) + pushSelf * !(!parseInt(goreLevel))),
+    kill: (parseInt(killLevel) + pushSelf * !(!parseInt(killLevel))),
+    para: (parseInt(paraLevel) + pushSelf * !(!parseInt(paraLevel))),
+    claus: (parseInt(clausLevel) + pushSelf * !(!parseInt(clausLevel))),
+    psych: (parseInt(psychLevel) + pushSelf * !(!parseInt(psychLevel))),
+    push: pushSelf
   };
+
 
   prefs2save = JSON.stringify(prefs2save);
   if (typeof Storage !== "undefined") {
@@ -52,7 +59,7 @@ if (savedPrefs) {
   // if a gore value
   if (savedPrefs.gore) {
     prefsForm.elements["gore"].forEach((elem) => {
-      if (elem.value == savedPrefs.gore) {
+      if (elem.value == (savedPrefs.gore - savedPrefs.push)) {
         elem.checked = true;
       } else {
         elem.checked = false;
@@ -63,7 +70,7 @@ if (savedPrefs) {
   // if a killer value
   if (savedPrefs.kill) {
     prefsForm.elements["killer"].forEach((elem) => {
-      if (elem.value == savedPrefs.kill) {
+      if (elem.value == (savedPrefs.kill - savedPrefs.push)) {
         elem.checked = true;
       } else {
         elem.checked = false;
@@ -74,7 +81,7 @@ if (savedPrefs) {
   // if a paranormal value
   if (savedPrefs.para) {
     prefsForm.elements["paranormal"].forEach((elem) => {
-      if (elem.value == savedPrefs.para) {
+      if (elem.value == (savedPrefs.para - savedPrefs.push)) {
         elem.checked = true;
       } else {
         elem.checked = false;
@@ -85,7 +92,7 @@ if (savedPrefs) {
   // if a claustrophobia value
   if (savedPrefs.claus) {
     prefsForm.elements["claustrophobia"].forEach((elem) => {
-      if (elem.value == savedPrefs.claus) {
+      if (elem.value == (savedPrefs.claus - savedPrefs.push)) {
         elem.checked = true;
       } else {
         elem.checked = false;
@@ -96,12 +103,17 @@ if (savedPrefs) {
   // if a psychological value
   if (savedPrefs.psych) {
     prefsForm.elements["psychological"].forEach((elem) => {
-      if (elem.value == savedPrefs.psych) {
+      if (elem.value == (savedPrefs.psych - savedPrefs.push)) {
         elem.checked = true;
       } else {
         elem.checked = false;
       }
     });
+  }
+
+  // if a pushSelf
+  if (savedPrefs.push == 1) {
+    prefsForm.elements["pushSelf"].checked = true;
   }
     
 }
